@@ -7,7 +7,6 @@ const Home = () => {
   const auth = getAuth();
   const navigate = useNavigate();
   const data = useSelector((state) => state.userLoginInfo.userInfo);
-  console.log(data.user);
 
   const handleLogout = () => {
     signOut(auth).then(() => {

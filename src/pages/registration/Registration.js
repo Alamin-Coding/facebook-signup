@@ -78,6 +78,12 @@ const Registration = () => {
       else if (!/^(?=.{8,})/.test(password)) {
         setPasswordErr("Password  must be eight characters or longer")
       }
+      else if(firstName / firstName){
+        setFirstNameErr("Number not allow !")
+      }
+      else if(lastName / lastName){
+        setLastNameErr("Number not allow !")
+      }
       else if (firstName && lastName && email && password) {
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
@@ -101,7 +107,7 @@ const Registration = () => {
           if (errorCode === "auth/email-already-in-use") {
             setEmailErr("This email-already-in-use")
           }
-          console.log(errorCode);
+          alert(errorCode);
         });
       }
     }
@@ -110,40 +116,40 @@ const Registration = () => {
   }
 
   return (
-    <div className='w-full h-screen flex items-center justify-center'>
-      <div className='grid gap-6 grid-cols-2 max-w-screen-lg'>
-        <div className='pt-16'>
+    <div className='w-full md:h-screen grid grid-cols-1 items-center justify-items-center'>
+      <div className='md:grid md:gap-6 grid-cols-1 md:grid-cols-2 md:max-w-screen-lg'>
+        <div className='p-2 md:pt-16'>
           <img src="images/logo.png" alt="Facebook logo" />
-          <p className='text-base font-poppins text-[#1C1E21] font-medium leading-5 pl-14 pr-28 '>Facebook helps you connect and share with the people in your life.</p>
+          <p className='text-base font-poppins text-[#1C1E21] font-normal md:font-medium md:leading-5 md:pl-14 md:pr-28 '>Facebook helps you connect and share with the people in your life.</p>
         </div>
-        <div className='px-4 pt-4 pb-6 rounded-lg bg-white drop-shadow-lg '>
+        <div className='p-2 md:p-4 rounded-lg bg-white drop-shadow-sm md:drop-shadow-lg '>
           <form action="">
             <div className='mb-3'>
-              <input className='py-5 px-4 rounded border border-borderColor w-full' type="text" placeholder='First Name' value={firstName} onChange={handleFirstName} />
+              <input className='py-3 md:py-5 px-2 md:px-4 rounded border border-borderColor w-full' type="text" placeholder='First Name' value={firstName} onChange={handleFirstName} />
               {firstNameErr && 
                 <span>{firstNameErr}</span>
               }
             </div>
             <div className='mb-3'>
-              <input className='py-5 px-4 rounded border border-borderColor w-full' type="text" placeholder='Last Name' value={lastName} onChange={handleLastName} />
+              <input className='py-3 md:py-5 px-2 md:px-4 rounded border border-borderColor w-full' type="text" placeholder='Last Name' value={lastName} onChange={handleLastName} />
               {lastNameErr && 
                 <span>{lastNameErr}</span>
               }
             </div>
             <div className='mb-3'>
-              <input className='py-5 px-4 rounded border border-borderColor w-full' type="email" placeholder='Email Address' value={email} onChange={handleEmail} />
+              <input className='py-3 md:py-5 px-2 md:px-4 rounded border border-borderColor w-full' type="email" placeholder='Email Address' value={email} onChange={handleEmail} />
               {emailErr && 
                 <span>{emailErr}</span>
               }
             </div>
             <div className='mb-3'>
-              <input className='py-5 px-4 rounded border border-borderColor w-full' type="text" placeholder='Password' value={password} onChange={handlePassword} />
+              <input className='py-3 md:py-5 px-2 md:px-4 rounded border border-borderColor w-full' type="text" placeholder='Password' value={password} onChange={handlePassword} />
               {passwordErr && 
                 <span>{passwordErr}</span>
               }
             </div>
             <div>
-              <button className='w-full bg-primary py-5 text-white text-center rounded-md text-xl font-poppins font-bold' onClick={handleSignUp} >Sign Up</button>
+              <button className='w-full bg-primary py-3 md:py-5 px-2 md:px-4 text-white text-center rounded-md text-xl font-poppins font-bold' onClick={handleSignUp} >Sign Up</button>
             </div>
           </form>
           <div className='text-center pb-5 pt-4'>
@@ -151,7 +157,7 @@ const Registration = () => {
           </div>
           <hr />
           <div className='pt-5'>
-            <Link to="/login" className='w-full bg-secondary py-5 text-white text-center rounded-md text-xl font-poppins font-bold'>Already have</Link>
+            <Link to="/login" className='w-full bg-secondary py-3 md:py-5 px-2 md:px-4 text-white text-center rounded-md text-xl font-poppins font-bold'>Already have</Link>
           </div>
         </div>
       </div>

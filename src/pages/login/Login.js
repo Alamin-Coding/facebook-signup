@@ -49,7 +49,7 @@ const Login = () => {
       })
       .catch((error) => {
         const errorCode = error.code;
-        console.log(errorCode);
+        alert(errorCode);
         if (errorCode === "auth/user-not-found" ) {
           setEmailErr("user-not-found")
         }
@@ -73,32 +73,32 @@ const Login = () => {
   // },[])
 
   return (
-    <div className='w-full h-screen flex items-center justify-center'>
-      <div className='grid gap-6 grid-cols-2 items-center max-w-screen-lg h-2/4 '>
-        <div>
+    <div className='w-full md:h-screen grid grid-cols-1 items-center justify-items-center'>
+      <div className='md:grid md:gap-6 grid-cols-1 md:grid-cols-2 md:max-w-screen-lg h-auto'>
+        <div className='p-2 md:pt-16'>
           <img src="images/logo.png" alt="Facebook logo" />
-          <p className='text-base font-poppins text-[#1C1E21] font-medium leading-5 pl-14 pr-28 '>Facebook helps you connect and share with the people in your life.</p>
+          <p className='text-base font-poppins text-[#1C1E21] font-normal md:font-medium md:leading-5 md:pl-14 md:pr-28 '>Facebook helps you connect and share with the people in your life.</p>
         </div>
         <div className='px-4 pt-4 pb-6 rounded-lg bg-white drop-shadow-lg '>
           <form action="">
             <div className='mb-3'>
-              <input className='py-5 px-4 rounded border border-borderColor w-full' type="email" placeholder='Email Address' value={email} onChange={handleEmail} />
+              <input className='py-3 md:py-5 px-2 md:px-4 rounded border border-borderColor w-full' type="email" placeholder='Email Address' value={email} onChange={handleEmail} />
               {emailErr && <span>{emailErr}</span>}
             </div>
             <div className='mb-3'>
-              <input className='py-5 px-4 rounded border border-borderColor w-full' type="password" placeholder='Password' value={password} onChange={handlePassword} />
+              <input className='py-3 md:py-5 px-2 md:px-4 rounded border border-borderColor w-full' type="password" placeholder='Password' value={password} onChange={handlePassword} />
               {passwordErr && <span>{passwordErr}</span>}
             </div>
             <div>
-              <button className='w-full bg-primary py-5 text-white text-center rounded-md text-xl font-poppins font-bold' onClick={handleLogin} >Log in</button>
+              <button className='w-full bg-primary py-3 md:py-5 text-white text-center rounded-md text-xl font-poppins font-bold' onClick={handleLogin} >Log in</button>
             </div>
           </form>
-          <div className='text-center pb-5 pt-4'>
+          <div className='text-center py-3 md:py-5 px-2 md:px-4'>
             <Link to="/forgotten-password" className='text-primary' >Forgotten Password?</Link>
           </div>
           <hr />
           <div className='pt-5'>
-            <Link to="/registration" className='w-full bg-secondary py-5 text-white text-center rounded-md text-xl font-poppins font-bold'>Create New Account</Link>
+            <Link to="/registration" className='w-full bg-secondary py-3 md:py-5 text-white text-center rounded-md text-xl font-poppins font-bold'>Create New Account</Link>
           </div>
         </div>
       </div>
